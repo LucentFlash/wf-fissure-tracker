@@ -15,6 +15,42 @@ function timeRemaining(time) {
     return remaining;
 }
 
+function checkSteelPath() {
+    var checkBox = document.getElementById("hideSteelPath");
+    var list = document.getElementById("myList");
+    if (checkBox.checked == true) {
+        for (i = 0; i < list.children.length; i++) {
+            if (list.children[i].innerText.includes("Steel Path")) {
+                list.children[i].style.display = 'none';
+            }
+        }
+    } else {
+        for (i = 0; i < list.children.length; i++) {
+            if (list.children[i].innerText.includes("Steel Path")) {
+                list.children[i].style.display = 'block';
+            }
+        }
+    }
+}
+
+function checkVoidStorm() {
+    var checkBox = document.getElementById("hideVoidStorm");
+    var list = document.getElementById("myList");
+    if (checkBox.checked == true) {
+        for (i = 0; i < list.children.length; i++) {
+            if (list.children[i].innerText.includes("Void Storm")) {
+                list.children[i].style.display = 'none';
+            }
+        }
+    } else {
+        for (i = 0; i < list.children.length; i++) {
+            if (list.children[i].innerText.includes("Void Storm")) {
+                list.children[i].style.display = 'block';
+            }
+        }
+    }
+}
+
 async function getFissures() {
     const response = await fetch('https://api.warframestat.us/pc/fissures', {
         method: 'POST',
@@ -33,19 +69,21 @@ async function getFissures() {
     myJson.sort(function(a, b) {
         return a.isStorm - b.isStorm;
     });
-    var list = document.getElementById("myList");
+    var list = document.getElementById('myList');
     while (list.firstChild) {
         list.removeChild(list.firstChild);
     }
     for (i = 0; i < myJson.length; ++i) {
-        let li = document.createElement('li');
+        let div = document.createElement('div');
         var steelPath = myJson[i].isHard ? 'Steel Path - ' : '';
         var voidStorm = myJson[i].isStorm ? 'Void Storm - ' : '';
         var countDownDate = new Date(myJson[i].expiry).getTime();
         if ((countDownDate - Date.now()) > 0) {
-            li.innerText = `${myJson[i].node} - ${steelPath}${voidStorm}${myJson[i].tier} ${myJson[i].missionType} - `;
-            li.innerText += `${timeRemaining(countDownDate - Date.now())}`;
-            list.appendChild(li);
+            div.innerText = `${myJson[i].node} - ${steelPath}${voidStorm}${myJson[i].tier} ${myJson[i].missionType} - `;
+            div.innerText += `${timeRemaining(countDownDate - Date.now())}`;
+            list.appendChild(div);
         }
     }
+    checkSteelPath();
+    checkVoidStorm();
 }

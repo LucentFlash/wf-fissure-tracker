@@ -6,6 +6,14 @@
     </head>
     <body onload="init()">
         <h1>Fissures</h1>
-        <ul id="myList"></ul>
+        <div id="container">
+            <div id="checkboxes">
+                <input type="checkbox" id="hideSteelPath" onclick="checkSteelPath()">
+                <label for="hideSteelPath">Hide Steel Path</label>
+                <input type="checkbox" id="hideVoidStorm" onclick="checkVoidStorm()">
+                <label for="hideVoidStorm">Hide Void Storm</label></br></br>
+            </div>
+            <div id="myList"></div>
+        </div>
     </body>
 </html>
