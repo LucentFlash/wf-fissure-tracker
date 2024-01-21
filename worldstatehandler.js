@@ -15,6 +15,24 @@ function timeRemaining(time) {
     return remaining;
 }
 
+function checkNormal() {
+    var checkBox = document.getElementById("hideNormal");
+    var list = document.getElementById("myList");
+    if (checkBox.checked == true) {
+        for (i = 0; i < list.children.length; i++) {
+            if (!list.children[i].innerText.includes("Steel Path") && !list.children[i].innerText.includes("Void Storm")) {
+                list.children[i].style.display = 'none';
+            }
+        }
+    } else {
+        for (i = 0; i < list.children.length; i++) {
+            if (!list.children[i].innerText.includes("Steel Path") && !list.children[i].innerText.includes("Void Storm")) {
+                list.children[i].style.display = 'block';
+            }
+        }
+    }
+}
+
 function checkSteelPath() {
     var checkBox = document.getElementById("hideSteelPath");
     var list = document.getElementById("myList");
