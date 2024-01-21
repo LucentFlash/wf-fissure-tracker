@@ -16,54 +16,54 @@ function timeRemaining(time) {
 }
 
 function checkNormal() {
-    var checkBox = document.getElementById("hideNormal");
+    var checkBox = document.getElementById("toggleNormal");
     var list = document.getElementById("myList");
     if (checkBox.checked == true) {
         for (i = 0; i < list.children.length; i++) {
             if (!list.children[i].innerText.includes("Steel Path") && !list.children[i].innerText.includes("Void Storm")) {
-                list.children[i].style.display = 'none';
+                list.children[i].style.display = 'block';
             }
         }
     } else {
         for (i = 0; i < list.children.length; i++) {
             if (!list.children[i].innerText.includes("Steel Path") && !list.children[i].innerText.includes("Void Storm")) {
-                list.children[i].style.display = 'block';
+                list.children[i].style.display = 'none';
             }
         }
     }
 }
 
 function checkSteelPath() {
-    var checkBox = document.getElementById("hideSteelPath");
+    var checkBox = document.getElementById("toggleSteelPath");
     var list = document.getElementById("myList");
     if (checkBox.checked == true) {
         for (i = 0; i < list.children.length; i++) {
             if (list.children[i].innerText.includes("Steel Path")) {
-                list.children[i].style.display = 'none';
+                list.children[i].style.display = 'block';
             }
         }
     } else {
         for (i = 0; i < list.children.length; i++) {
             if (list.children[i].innerText.includes("Steel Path")) {
-                list.children[i].style.display = 'block';
+                list.children[i].style.display = 'none';
             }
         }
     }
 }
 
 function checkVoidStorm() {
-    var checkBox = document.getElementById("hideVoidStorm");
+    var checkBox = document.getElementById("toggleVoidStorm");
     var list = document.getElementById("myList");
     if (checkBox.checked == true) {
         for (i = 0; i < list.children.length; i++) {
             if (list.children[i].innerText.includes("Void Storm")) {
-                list.children[i].style.display = 'none';
+                list.children[i].style.display = 'block';
             }
         }
     } else {
         for (i = 0; i < list.children.length; i++) {
             if (list.children[i].innerText.includes("Void Storm")) {
-                list.children[i].style.display = 'block';
+                list.children[i].style.display = 'none';
             }
         }
     }
