@@ -102,6 +102,7 @@ async function getFissures() {
             list.appendChild(div);
         }
     }
+    checkNormal();
     checkSteelPath();
     checkVoidStorm();
 }
