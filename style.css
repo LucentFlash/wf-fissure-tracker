@@ -16,6 +16,11 @@ body {
     display: block;
 }
 
+#pig {
+    position: fixed;
+    right: 0;
+}
+
 a:link, a:visited {
     color: floralwhite;
     text-decoration: none;
